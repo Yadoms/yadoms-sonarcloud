@@ -1,0 +1,13 @@
+language: cpp
+dist: trusty
+
+sudo: required
+
+services:
+  - docker
+  
+before_install:
+  - docker pull yadoms/yadoms_sonar_cloud
+  
+script:
+  - docker run -e YADOMS_BUILD_BRANCH=${YADOMS_BRANCH} yadoms/yadoms_sonar_cloud
